@@ -1,4 +1,4 @@
-FROM ubuntu:focal
+FROM ubuntu:20.04
 
 ## Usage:
 # docker build -t bacnet --target bacnet .
@@ -44,7 +44,7 @@ RUN set -euxo pipefail; \
   rm -rf bacnet-*/
 
 
-FROM ubuntu:focal AS bacnet
+FROM ubuntu:20.04 AS bacnet
 WORKDIR /opt/bacnet
 COPY --from=builder /build/bin/* /opt/bacnet/bin/
 EXPOSE 47808/udp
